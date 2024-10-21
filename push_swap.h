@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:14:09 by athi              #+#    #+#             */
-/*   Updated: 2024/10/20 05:51:42 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/10/21 17:37:52 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_push_swap
 }	t_push_swap;
 
 t_bool	input_handler(int argc, char *argv[]);
-t_list	*build_stack(int argc, char *argv[]);
+t_bool	build_stack(t_list *stack, int argc, char *argv[]);
 t_list	*intial_stack(t_push_swap push_swap, int argc, char *argv[]);
 
 #endif
