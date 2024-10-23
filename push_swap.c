@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:14:11 by athi              #+#    #+#             */
-/*   Updated: 2024/10/21 17:47:02 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/10/23 13:13:57 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char *argv[])
 	// t_push_swap	*push_swap;
 	// argc = 3;
 	// argv[1] = "2";
-	// argv[2] = "";
+	// argv[2] = "3";
 	// argv[3] = 0;
 	// argv[3] = "5";
 	// argv[4] = "3";
