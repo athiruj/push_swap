@@ -6,13 +6,13 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 21:26:35 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/10/23 13:59:41 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/10/24 11:24:31 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-
+  
 static t_bool	ft_isinteger(t_list *stack)
 {
 	char	*str;
@@ -52,27 +52,24 @@ static t_bool	ft_isduplicate(t_list *stack)
 
 static t_bool	ft_isoverflow(t_list *stack)
 {
-	int		*n;
 	char	*tmp;
+	char	*tmp_content;
 
 	while (stack)
 	{
-		n = (int *)malloc(sizeof(int));
-		if (!n)
-			return (True);
-		*n = ft_atoi((char *)stack->content);
-		tmp = ft_itoa(*n);
-		if (!tmp)
-			return (True);
-		if (ft_strcmp(tmp, (char *)stack->content))
-		{
-			free(n);
-			free(tmp);
-			return (True);
-		}
-		free(tmp);
-		free(stack->content);
-		stack->content = n;
+		// ! tmp_content = (char *)stack->content;
+		// ! tmp = ft_itoa(ft_atoi((char *)stack->content));
+		// ! if (!tmp)
+		// ! 	return (True);
+		// ! if (*tmp_content == '+')
+		// ! 	tmp_content++;
+		// ! printf("%s ", tmp_content);
+		// ! if (ft_strcmp(tmp, tmp_content))
+		// ! {
+		// ! 	free(tmp);
+		// ! 	return (True);
+		// ! }
+		// ! free(tmp);
 		stack = stack->next;
 	}
 	return (False);
@@ -80,7 +77,13 @@ static t_bool	ft_isoverflow(t_list *stack)
 
 static t_bool	ft_issorted(t_list *stack)
 {
-	return (False);
+	while (stack->next)
+	{
+		if (ft_atoi(stack->content) > ft_atoi(stack->next->content))
+			return (False);
+		stack = stack->next;
+	}
+	return (True);
 }
 
 t_bool	input_handler(int argc, char *argv[])
