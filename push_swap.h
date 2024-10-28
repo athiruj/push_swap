@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:14:09 by athi              #+#    #+#             */
-/*   Updated: 2024/10/21 17:37:52 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/10/28 16:03:13 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@
 typedef struct s_stack
 {
 	int				len;
-	t_list	head;
-	t_list	before_tail;
-	t_list	tail;
+	t_list	*head;
+	t_list	*before_tail;
+	t_list	*tail;
 }	t_stack;
 
 /*
@@ -37,13 +37,16 @@ typedef struct s_stack
 */
 typedef struct s_push_swap
 {
-	t_stack	stack_a;
-	t_stack	stack_b;
-	t_list	cmds;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	t_list	*cmds;
 }	t_push_swap;
 
-t_bool	input_handler(int argc, char *argv[]);
-t_bool	build_stack(t_list *stack, int argc, char *argv[]);
-t_list	*intial_stack(t_push_swap push_swap, int argc, char *argv[]);
+t_bool	stack_handler(t_list *lst, int argc, char *argv[]);
+t_bool	initial_stack(t_stack *stack, int argc, char *argv[]);
+t_bool	initial_push_swap(t_push_swap *push_swap, int argc, char *argv[]);
+t_bool	free_push_swap_children(t_push_swap *push_swap);
+t_bool	free_fail_push_swap_children(t_push_swap *push_swap);
+t_bool	free_stack(t_stack *stack);
 
 #endif

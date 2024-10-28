@@ -13,8 +13,9 @@ OBJS_DIR	=	odjs/
 
 HEADER		= 	push_swap.h
 FILES		=	push_swap.c
-UTILS		=	u_input_handler.c \
-				u_initial_stack.c
+UTILS		=	u_handler.c \
+				u_initialization.c \
+				u_free.c
 OPERS		=	
 # OPERS		=	o_swap.c \
 # 				o_sswap.c \
@@ -60,4 +61,33 @@ fclean: clean
 
 re: clean all
 
-.PHONY: all clean fclean re
+test: $(NAME)
+	$(RM) tests/*.out
+	leaks -atExit -- ./push_swap 4 3 7 2 -1 -3 6 8 > tests/ok_1.out \
+	| leaks -atExit -- ./push_swap 7 +3 9 2 -1 -0 6 +8 > tests/ok_2.out \
+	| leaks -atExit -- ./push_swap "4 2 1 3 -1 5 -6" > tests/ok_3.out \
+	| leaks -atExit -- ./push_swap "   1    2    3    4   0 " > tests/ok_4.out \
+	| leaks -atExit -- ./push_swap "1234" 1 3 4 5 > tests/ok_5.out \
+	| leaks -atExit -- ./push_swap "1234" 000002 > tests/ok_6.out \
+	| leaks -atExit -- ./push_swap " 1234" 1 3 4 5 > tests/ok_7.out \
+	| leaks -atExit -- ./push_swap 1 > tests/no_1.out \
+	| leaks -atExit -- ./push_swap 1 2 3 4 5 6 7 8 9 10 11 > tests/no_2.out \
+	| leaks -atExit -- ./push_swap -+0 > tests/error_1.out \
+	| leaks -atExit -- ./push_swap +-0 > tests/error_2.out \
+	| leaks -atExit -- ./push_swap 1a > tests/error_3.out \
+	| leaks -atExit -- ./push_swap "" > tests/error_4.out \
+	| leaks -atExit -- ./push_swap " " > tests/error_5.out \
+	| leaks -atExit -- ./push_swap 4+2 5 1 > tests/error_6.out \
+	| leaks -atExit -- ./push_swap ++1 > tests/error_7.out \
+	| leaks -atExit -- ./push_swap 2 "" 4 3 > tests/error_8.out \
+	| leaks -atExit -- ./push_swap 2 " " 4 3 > tests/error_9.out \
+	| leaks -atExit -- ./push_swap 42 000042 5 1 > tests/error_10.out \
+	| leaks -atExit -- ./push_swap a b c d e f g h i j . - , > tests/error_11.out \
+	| leaks -atExit -- ./push_swap 1 2 3 4 1 2 3 4 1 2 3 4 > tests/error_12.out \
+	| leaks -atExit -- ./push_swap 1 2 3 4 a b c d 1a 2b 3c 4d > tests/error_13.out \
+	| leaks -atExit -- ./push_swap -2147483649 2147483648 > tests/error_14.out \
+	| leaks -atExit -- ./push_swap -4294967294 4294967294 > tests/error_15.out \
+	| leaks -atExit -- ./push_swap -18446744073709551614 18446744073709551614 > tests/error_16.out \
+	| leaks -atExit -- ./push_swap 1 2 3 4 a b c d 1a 2b 3c 4d > tests/error_17.out
+
+.PHONY: all clean fclean re test
