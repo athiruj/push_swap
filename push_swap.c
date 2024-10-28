@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:14:11 by athi              #+#    #+#             */
-/*   Updated: 2024/10/28 16:26:17 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/10/28 16:53:49 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,11 @@
 // 	printf("OK");
 // 	return (1);
 // }
+
 int	main(int argc, char *argv[])
 {
 	t_push_swap	*push_swap;
 
-	// argc = 2;
-	// argv[1] = " ";
-	// argv[2] = 0;
-	// argv[3] = "-1";
-	// argv[4] = 0;
-	// argv[4] = "4";
-	// argv[5] = "1";
-	// argv[6] = "2";
-	// argv[6] = 0;
 	if (argc < 2)
 		return (0);
 	push_swap = (t_push_swap *)malloc(sizeof(t_push_swap));

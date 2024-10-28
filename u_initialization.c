@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 20:05:36 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/10/28 16:12:47 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/10/28 16:53:36 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,11 @@ static t_bool	build_stack(t_list	*stack, int argc, char *argv[])
 		while (tmp_arr[i])
 		{
 			if (!push_stack(stack, tmp_arr[i++]))
+			{
+				ft_lstfree(stack);
+				free(tmp_arr);
 				return (False);
+			}
 		}
 		free(tmp_arr);
 	}
@@ -59,7 +63,7 @@ t_bool	initial_stack(t_stack *stack, int argc, char *argv[])
 	t_list	*tmp_lst;
 
 	stack->head = (t_list *)malloc(sizeof(t_stack));
-	if (!stack)
+	if (!stack->head)
 		return (False);
 	if (!build_stack(stack->head, argc, argv)
 		|| !stack_handler(stack->head, argc, argv))
@@ -88,7 +92,7 @@ t_bool	initial_push_swap(t_push_swap *push_swap, int argc, char *argv[])
 	push_swap->stack_b = (t_stack *)malloc(sizeof(t_stack));
 	push_swap->cmds = (t_list *)malloc(sizeof(t_list));
 	if (!push_swap->stack_a || !push_swap->stack_b || !push_swap->cmds)
-		return (!free_push_swap_children(push_swap));
+		return (!free_fail_push_swap_children(push_swap));
 	if (!initial_stack(push_swap->stack_a, argc, argv))
 		return (!free_fail_push_swap_children(push_swap));
 	return (True);
