@@ -1,6 +1,6 @@
 CC			= 	cc
-# CCFLAGS		= 	-Wall -Wextra -Werror
-CCFLAGS		=	
+CCFLAGS		= 	-Wall -Wextra -Werror
+# CCFLAGS		=	
 AR 			= 	ar -rsc
 RM			= 	rm -rf
 
@@ -13,7 +13,7 @@ OBJS_DIR	=	odjs/
 
 HEADER		= 	push_swap.h
 FILES		=	push_swap.c
-UTILS		=	u_handler.c \
+UTILS		=	u_checker.c \
 				u_initialization.c \
 				u_free.c
 OPERS		=	
@@ -70,6 +70,8 @@ test: $(NAME)
 	| leaks -atExit -- ./push_swap "1234" 1 3 4 5 > tests/ok_5.out \
 	| leaks -atExit -- ./push_swap "1234" 000002 > tests/ok_6.out \
 	| leaks -atExit -- ./push_swap " 1234" 1 3 4 5 > tests/ok_7.out \
+	| leaks -atExit -- ./push_swap "+000001234" -000002 > tests/ok_8.out \
+	| leaks -atExit -- ./push_swap "+000001234 4" -000002 > tests/ok_9.out \
 	| leaks -atExit -- ./push_swap 1 > tests/no_1.out \
 	| leaks -atExit -- ./push_swap 1 2 3 4 5 6 7 8 9 10 11 > tests/no_2.out \
 	| leaks -atExit -- ./push_swap -+0 > tests/error_1.out \

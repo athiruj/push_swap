@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 20:05:36 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/10/28 16:53:36 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/10/30 15:10:51 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,18 @@ static t_bool	build_stack(t_list	*stack, int argc, char *argv[])
 	char	**tmp_arr;
 	size_t	i;
 
-	while (*++argv)
+	while (*++argv && --argc)
 	{
 		tmp_arr = ft_split(*argv, ' ');
 		if (!tmp_arr || !(tmp_arr[0]))
 		{
 			ft_putstr_fd("ERROR\n", 1);
-			free(tmp_arr);
-			return (False);
+			return (!free_arr(tmp_arr));
 		}
 		i = 0;
 		while (tmp_arr[i])
-		{
 			if (!push_stack(stack, tmp_arr[i++]))
-			{
-				ft_lstfree(stack);
-				free(tmp_arr);
-				return (False);
-			}
-		}
+				return (!free_arr(tmp_arr));
 		free(tmp_arr);
 	}
 	return (True);
@@ -66,7 +59,7 @@ t_bool	initial_stack(t_stack *stack, int argc, char *argv[])
 	if (!stack->head)
 		return (False);
 	if (!build_stack(stack->head, argc, argv)
-		|| !stack_handler(stack->head, argc, argv))
+		|| !stack_checker(stack->head))
 	{
 		ft_lstfree(stack->head);
 		return (False);
@@ -92,8 +85,8 @@ t_bool	initial_push_swap(t_push_swap *push_swap, int argc, char *argv[])
 	push_swap->stack_b = (t_stack *)malloc(sizeof(t_stack));
 	push_swap->cmds = (t_list *)malloc(sizeof(t_list));
 	if (!push_swap->stack_a || !push_swap->stack_b || !push_swap->cmds)
-		return (!free_fail_push_swap_children(push_swap));
+		return (!free_fail_children(push_swap));
 	if (!initial_stack(push_swap->stack_a, argc, argv))
-		return (!free_fail_push_swap_children(push_swap));
+		return (!free_fail_children(push_swap));
 	return (True);
 }

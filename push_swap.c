@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:14:11 by athi              #+#    #+#             */
-/*   Updated: 2024/10/28 16:53:49 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/10/30 12:54:13 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
 // 	optimize_cmd(push_swap->cmds);
 // 	print_cmds(push_swap->cmds);
 // 	free_push_swap(push_swap);
-// 	printf("OK");
 // 	return (1);
 // }
 
@@ -49,7 +48,7 @@ int	main(int argc, char *argv[])
 		free(push_swap);
 		return (0);
 	}
-	free_push_swap_children(push_swap);
+	free_children(push_swap);
 	free(push_swap);
 	printf("OK\n");
 	return (1);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   u_handler.c                                        :+:      :+:    :+:   */
+/*   u_checker.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 21:26:35 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/10/28 16:31:15 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/10/30 15:26:06 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ static t_bool	is_duplicate(t_list *stack)
 	return (False);
 }
 
-
 static t_bool	is_sorted(t_list *stack)
 {
 	while (stack->next)
@@ -85,8 +84,10 @@ static t_bool	is_sorted(t_list *stack)
 	return (True);
 }
 
-t_bool	stack_handler(t_list *stack, int argc, char *argv[])
+t_bool	stack_checker(t_list *stack)
 {
+	if (!stack)
+		return (False);
 	if (!is_number(stack)
 		|| is_overflow(stack)
 		|| is_duplicate(stack))
@@ -94,7 +95,7 @@ t_bool	stack_handler(t_list *stack, int argc, char *argv[])
 		ft_putstr_fd("ERROR\n", 1);
 		return (False);
 	}
-	if (is_sorted(stack) || ft_lstsize(stack) < 2)
+	if (is_sorted(stack))
 		return (False);
 	return (True);
 }
