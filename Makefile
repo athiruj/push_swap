@@ -19,11 +19,11 @@ UTILS		=	u_checker.c \
 				u_utils.c  
 
 OPERS		=	o_push.c \
-				o_rotate.c
+				o_rotate.c \
+				o_reverse_rotate.c 
 # OPERS		=	o_swap.c \
 # 				o_sswap.c \
 # 				o_rrotate.c \
-# 				o_reverse_rotate.c \ 
 # 				o_rreverse_rotate.c 
 
 FILE_OBJS	=	$(addprefix $(OBJS_DIR), $(FILES:.c=.o)) \

@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 20:05:36 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/02 21:31:26 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/02 22:55:14 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_bool	initial_stack(t_stack *stack, char *name, int argc, char *argv[])
 	if (!build_stack(stack->head, argc, argv)
 		|| !stack_checker(stack->head))
 	{
-		ft_lstfree(stack->head);
+		free_stack(stack);
 		return (False);
 	}
 	stack->name = name;
