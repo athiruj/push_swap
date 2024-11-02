@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:28:43 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/02 21:26:36 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/02 22:24:28 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,18 @@ void	add_cmd(t_list	**lst, char *cmd)
 	if (!(*lst)->content)
 		(*lst)->content = cmd;
 	else
-		ft_lstadd_front(lst, ft_lstnew(cmd));
+		ft_lstadd_back(lst, ft_lstnew(cmd));
+}
+
+
+t_list	*before_tail(t_list *lst)
+{
+	t_list	*tmp;
+
+	if (!lst)
+		return (NULL);
+	tmp = lst;
+	while (tmp->next->next)
+		tmp = tmp->next;
+	return (tmp);
 }
