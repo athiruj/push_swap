@@ -6,12 +6,11 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 21:26:35 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/10/30 15:26:06 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/02 20:55:24 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static t_bool	is_number(t_list *stack)
 {
@@ -20,7 +19,6 @@ static t_bool	is_number(t_list *stack)
 	while (stack)
 	{
 		str = (char *)stack->content;
-		printf("%s ", str);
 		if (*str == '-' || *str == '+')
 			str++;
 		while (*str)

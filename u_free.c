@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:22:33 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/10/30 15:18:08 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/02 21:29:43 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,18 @@ t_bool	free_fail_children(t_push_swap *push_swap)
 
 t_bool	free_stack(t_stack *stack)
 {
+	t_list	*tmp;
+
 	if (!stack)
 		return (True);
-	ft_lstfree(stack->head);
+	while (stack->head)
+	{
+		tmp = stack->head->next;
+		if (stack->head->content)
+			free(stack->head->content);
+		free(stack->head);
+		stack->head = tmp;
+	}
 	free(stack);
 	return (True);
 }

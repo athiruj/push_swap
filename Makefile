@@ -15,11 +15,12 @@ HEADER		= 	push_swap.h
 FILES		=	push_swap.c
 UTILS		=	u_checker.c \
 				u_initialization.c \
-				u_free.c
-OPERS		=	
+				u_free.c \
+				u_utils.c  
+
+OPERS		=	o_push.c  
 # OPERS		=	o_swap.c \
 # 				o_sswap.c \
-# 				o_push.c \ 
 # 				o_rotate.c \
 # 				o_rrotate.c \
 # 				o_reverse_rotate.c \ 

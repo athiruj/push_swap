@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:14:11 by athi              #+#    #+#             */
-/*   Updated: 2024/10/30 12:54:13 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/02 21:24:16 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,40 @@
 // 	free_push_swap(push_swap);
 // 	return (1);
 // }
+void print_lst(t_list *lst)
+{
+	t_list *tmp;
+
+	tmp = lst;
+	while (tmp)
+	{
+		printf("%s ", (char *)tmp->content);
+		tmp = tmp->next;
+	}
+	printf("\n");
+}
+void print_stack(t_stack *stack)
+{
+	t_list *tmp;
+	
+	tmp = stack->head;
+	while (tmp)
+	{
+		printf("%d ", *((int *)tmp->content));
+		tmp = tmp->next;
+	}
+	printf("\n");
+}
 
 int	main(int argc, char *argv[])
 {
 	t_push_swap	*push_swap;
 
+	// argc = 4;
+	// argv[1] = "4"; 
+	// argv[2] = "2"; 
+	// argv[3] = "5";
+	// argv[4] = 0; 
 	if (argc < 2)
 		return (0);
 	push_swap = (t_push_swap *)malloc(sizeof(t_push_swap));
@@ -48,6 +77,16 @@ int	main(int argc, char *argv[])
 		free(push_swap);
 		return (0);
 	}
+	print_stack(push_swap->stack_a);
+	print_stack(push_swap->stack_b);
+	while (push_swap->stack_a->len)
+	{
+		printf("------\n");
+		push(push_swap->stack_a, push_swap->stack_b, &push_swap->cmds);
+		print_stack(push_swap->stack_a);
+		print_stack(push_swap->stack_b);
+	}
+	print_lst(push_swap->cmds);
 	free_children(push_swap);
 	free(push_swap);
 	printf("OK\n");
