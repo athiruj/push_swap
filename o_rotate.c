@@ -6,19 +6,23 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:38:10 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/03 04:04:56 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:48:03 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rrotate(t_stack *stack_a, t_stack *stack_b, t_list **cmds)
+void	r_rotate(t_stack *stack_a, t_stack *stack_b, t_bool cmd)
 {
-	rotate(stack_a, cmds);
-	rotate(stack_b, cmds);
+	if (!stack_a || !stack_b)
+		return ;
+	rotate(stack_a, False);
+	rotate(stack_b, False);
+	if (cmd)
+		print_cmd(NULL, "rr");
 }
 
-void	rotate(t_stack *stack, t_list **cmds)
+void	rotate(t_stack *stack, t_bool	cmd)
 {
 	if (stack->len < 2)
 		return ;
@@ -26,8 +30,6 @@ void	rotate(t_stack *stack, t_list **cmds)
 	stack->tail = stack->head;
 	stack->head = stack->head->next;
 	stack->tail->next = NULL;
-	if (*(char *)stack->name == 'a')
-		add_cmd(cmds, "ra");
-	else if (*(char *)stack->name == 'b')
-		add_cmd(cmds, "rb");
+	if (cmd)
+		print_cmd(stack, "r");
 }

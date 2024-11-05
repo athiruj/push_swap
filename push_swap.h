@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:14:09 by athi              #+#    #+#             */
-/*   Updated: 2024/11/05 02:00:57 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:25:14 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ typedef struct s_stack
 /*
 	stack_a: a stack
 	stack_b: b stack
-	cmds: commands
+	// cmds: commands
 */
 typedef struct s_push_swap
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	t_list	*cmds;
+	// t_list	*cmds;
 }	t_push_swap;
 
 t_bool	stack_checker(t_list *lst);
@@ -51,12 +51,15 @@ t_bool	free_fail_children(t_push_swap *push_swap);
 t_bool	free_stack(t_stack *stack);
 t_bool	free_arr(char **arr);
 
-void	push(t_stack *from_stack, t_stack *to_stack, t_list **cmds);
-void	swap(t_stack *stack, t_list **cmds);
-void	rotate(t_stack *stack, t_list **cmds);
-void	reverse_rotate(t_stack *stack, t_list **cmds);
+void	push(t_stack *from_stack, t_stack *to_stack, t_bool cmd);
+void	swap(t_stack *stack, t_bool	cmd);
+void	s_swap(t_stack *stack_a, t_stack *stack_b, t_bool cmd);
+void	rotate(t_stack *stack, t_bool	cmd);
+void	r_rotate(t_stack *stack_a, t_stack *stack_b, t_bool	cmd);
+void	reverse_rotate(t_stack *stack, t_bool	cmd);
+void	r_reverse_rotate(t_stack *stack_a, t_stack *stack_b, t_bool	cmd);
 
-void	add_cmd(t_list	**lst, char *cmd);
+void	print_cmd(t_stack	*stack, char *cmd);
 t_list	*before_tail(t_list *lst);
 
 #endif

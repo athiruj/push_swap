@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 20:05:36 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/02 22:55:14 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:13:01 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,12 @@ t_bool	initial_push_swap(t_push_swap *push_swap, int argc, char *argv[])
 		return (False);
 	push_swap->stack_a = (t_stack *)malloc(sizeof(t_stack));
 	push_swap->stack_b = (t_stack *)malloc(sizeof(t_stack));
-	push_swap->cmds = (t_list *)malloc(sizeof(t_list));
-	if (!push_swap->stack_a || !push_swap->stack_b || !push_swap->cmds)
+	if (!push_swap->stack_a || !push_swap->stack_b)
 		return (!free_fail_children(push_swap));
 	push_swap->stack_b->name = "b";
 	push_swap->stack_b->len = 0;
 	push_swap->stack_b->head = NULL;
 	push_swap->stack_b->tail = NULL;
-	push_swap->cmds->content = NULL;
 	if (!initial_stack(push_swap->stack_a, "a", argc, argv))
 		return (!free_fail_children(push_swap));
 	return (True);
