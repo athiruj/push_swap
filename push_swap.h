@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:14:09 by athi              #+#    #+#             */
-/*   Updated: 2024/11/05 02:00:57 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:04:57 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,11 @@ t_bool	free_arr(char **arr);
 
 void	push(t_stack *from_stack, t_stack *to_stack, t_list **cmds);
 void	swap(t_stack *stack, t_list **cmds);
+void	s_swap(t_stack *stack_a, t_stack *stack_b, t_list **cmds);
 void	rotate(t_stack *stack, t_list **cmds);
+void	r_rotate(t_stack *stack_a, t_stack *stack_b, t_list **cmds);
 void	reverse_rotate(t_stack *stack, t_list **cmds);
+void	r_reverse_rotate(t_stack *stack_a, t_stack *stack_b, t_list **cmds);
 
 void	add_cmd(t_list	**lst, char *cmd);
 t_list	*before_tail(t_list *lst);

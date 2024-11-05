@@ -6,11 +6,12 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:28:43 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/02 22:24:28 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:53:00 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	add_cmd(t_list	**lst, char *cmd)
 {

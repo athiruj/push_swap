@@ -6,13 +6,21 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:38:03 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/05 02:01:03 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:04:35 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-#include <stdio.h>
+void	s_swap(t_stack *stack_a, t_stack *stack_b, t_list **cmds)
+{
+	if (!stack_a || !stack_b)
+		return ;
+	swap(stack_a, NULL);
+	swap(stack_b, NULL);
+	if (cmds)
+		add_cmd(cmds, ft_strdup("ss"));
+}
 
 void	swap(t_stack *stack, t_list **cmds)
 {
@@ -37,8 +45,6 @@ void	swap(t_stack *stack, t_list **cmds)
 		stack->head->next = tmp;
 		tmp->next = tmp_next;
 	}
-	if (*(char *)stack->name == 'a')
-		add_cmd(cmds, "sa");
-	else if (*(char *)stack->name == 'b')
-		add_cmd(cmds, "sb");
+	if (cmds)
+		add_cmd(cmds, ft_strjoin("s", stack->name));
 }

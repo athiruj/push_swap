@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:14:11 by athi              #+#    #+#             */
-/*   Updated: 2024/11/02 23:42:31 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:06:38 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,32 @@ int	main(int argc, char *argv[])
 	print_stack(push_swap->stack_b);
 	print_lst(push_swap->cmds);
 	printf("------\n");
+	push(push_swap->stack_a, push_swap->stack_b, &push_swap->cmds);
+	print_stack(push_swap->stack_a);
+	print_stack(push_swap->stack_b);
+	print_lst(push_swap->cmds);
+	printf("------\n");
 	reverse_rotate(push_swap->stack_a, &push_swap->cmds);
 	print_stack(push_swap->stack_a);
 	print_stack(push_swap->stack_b);
 	print_lst(push_swap->cmds);
 	printf("------\n");
 	swap(push_swap->stack_a, &push_swap->cmds);
+	print_stack(push_swap->stack_a);
+	print_stack(push_swap->stack_b);
+	print_lst(push_swap->cmds);
+	printf("------\n");
+	r_reverse_rotate(push_swap->stack_a, push_swap->stack_b, &push_swap->cmds);
+	print_stack(push_swap->stack_a);
+	print_stack(push_swap->stack_b);
+	print_lst(push_swap->cmds);
+	printf("------\n");
+	push(push_swap->stack_a, push_swap->stack_b, &push_swap->cmds);
+	print_stack(push_swap->stack_a);
+	print_stack(push_swap->stack_b);
+	print_lst(push_swap->cmds);
+	printf("------\n");
+	r_rotate(push_swap->stack_a, push_swap->stack_b, &push_swap->cmds);
 	print_stack(push_swap->stack_a);
 	print_stack(push_swap->stack_b);
 	print_lst(push_swap->cmds);
