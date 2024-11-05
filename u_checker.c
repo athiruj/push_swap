@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 21:26:35 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/02 20:55:24 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:43:53 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static t_bool	is_duplicate(t_list *stack)
 	return (False);
 }
 
-static t_bool	is_sorted(t_list *stack)
+t_bool	is_sorted(t_list *stack)
 {
 	while (stack->next)
 	{

@@ -6,45 +6,13 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:14:11 by athi              #+#    #+#             */
-/*   Updated: 2024/11/05 15:06:38 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:58:19 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-// int	main(int argc, char *argv[])
-// {
-// 	t_push_swap	*push_swap;
-
-// 	if (argc < 2)
-// 		return (0);
-// 	push_swap = (t_push_swap *)malloc(sizeof(t_push_swap));
-// 	if (!push_swap)
-// 		return (0);
-// 	if (!initial_push_swap(push_swap, argc, argv))
-// 	{
-// 		free(push_swap);
-// 		return (0);
-// 	}
-// 	sort_push_swap(push_swap);
-// 	optimize_cmd(push_swap->cmds);
-// 	print_cmds(push_swap->cmds);
-// 	free_push_swap(push_swap);
-// 	return (1);
-// }
-void print_lst(t_list *lst)
-{
-	t_list *tmp;
-
-	tmp = lst;
-	while (tmp)
-	{
-		printf("%s ", (char *)tmp->content);
-		tmp = tmp->next;
-	}
-	printf("\n");
-}
 void print_stack(t_stack *stack)
 {
 	t_list *tmp;
@@ -77,53 +45,80 @@ int	main(int argc, char *argv[])
 		free(push_swap);
 		return (0);
 	}
+	if (sort_push_swap(push_swap))
+		print_cmds(push_swap->cmds);
 	print_stack(push_swap->stack_a);
-	print_stack(push_swap->stack_b);
-	printf("------\n");
-	rotate(push_swap->stack_a, &push_swap->cmds);
-	print_stack(push_swap->stack_a);
-	print_stack(push_swap->stack_b);
-	print_lst(push_swap->cmds);
-	printf("------\n");
-	push(push_swap->stack_a, push_swap->stack_b, &push_swap->cmds);
-	print_stack(push_swap->stack_a);
-	print_stack(push_swap->stack_b);
-	print_lst(push_swap->cmds);
-	printf("------\n");
-	push(push_swap->stack_a, push_swap->stack_b, &push_swap->cmds);
-	print_stack(push_swap->stack_a);
-	print_stack(push_swap->stack_b);
-	print_lst(push_swap->cmds);
-	printf("------\n");
-	reverse_rotate(push_swap->stack_a, &push_swap->cmds);
-	print_stack(push_swap->stack_a);
-	print_stack(push_swap->stack_b);
-	print_lst(push_swap->cmds);
-	printf("------\n");
-	swap(push_swap->stack_a, &push_swap->cmds);
-	print_stack(push_swap->stack_a);
-	print_stack(push_swap->stack_b);
-	print_lst(push_swap->cmds);
-	printf("------\n");
-	r_reverse_rotate(push_swap->stack_a, push_swap->stack_b, &push_swap->cmds);
-	print_stack(push_swap->stack_a);
-	print_stack(push_swap->stack_b);
-	print_lst(push_swap->cmds);
-	printf("------\n");
-	push(push_swap->stack_a, push_swap->stack_b, &push_swap->cmds);
-	print_stack(push_swap->stack_a);
-	print_stack(push_swap->stack_b);
-	print_lst(push_swap->cmds);
-	printf("------\n");
-	r_rotate(push_swap->stack_a, push_swap->stack_b, &push_swap->cmds);
-	print_stack(push_swap->stack_a);
-	print_stack(push_swap->stack_b);
-	print_lst(push_swap->cmds);
 	free_children(push_swap);
 	free(push_swap);
-	printf("OK\n");
 	return (1);
 }
+// int	main(int argc, char *argv[])
+// {
+// 	t_push_swap	*push_swap;
+
+// 	// argc = 4;
+// 	// argv[1] = "4"; 
+// 	// argv[2] = "2"; 
+// 	// argv[3] = "5";
+// 	// argv[4] = 0; 
+// 	if (argc < 2)
+// 		return (0);
+// 	push_swap = (t_push_swap *)malloc(sizeof(t_push_swap));
+// 	if (!push_swap)
+// 		return (0);
+// 	if (!initial_push_swap(push_swap, argc, argv))
+// 	{
+// 		free(push_swap);
+// 		return (0);
+// 	}
+// 	print_stack(push_swap->stack_a);
+// 	print_stack(push_swap->stack_b);
+// 	printf("------\n");
+// 	rotate(push_swap->stack_a, &push_swap->cmds);
+// 	print_stack(push_swap->stack_a);
+// 	print_stack(push_swap->stack_b);
+// 	print_lst(push_swap->cmds);
+// 	printf("------\n");
+// 	push(push_swap->stack_a, push_swap->stack_b, &push_swap->cmds);
+// 	print_stack(push_swap->stack_a);
+// 	print_stack(push_swap->stack_b);
+// 	print_lst(push_swap->cmds);
+// 	printf("------\n");
+// 	push(push_swap->stack_a, push_swap->stack_b, &push_swap->cmds);
+// 	print_stack(push_swap->stack_a);
+// 	print_stack(push_swap->stack_b);
+// 	print_lst(push_swap->cmds);
+// 	printf("------\n");
+// 	reverse_rotate(push_swap->stack_a, &push_swap->cmds);
+// 	print_stack(push_swap->stack_a);
+// 	print_stack(push_swap->stack_b);
+// 	print_lst(push_swap->cmds);
+// 	printf("------\n");
+// 	swap(push_swap->stack_a, &push_swap->cmds);
+// 	print_stack(push_swap->stack_a);
+// 	print_stack(push_swap->stack_b);
+// 	print_lst(push_swap->cmds);
+// 	printf("------\n");
+// 	r_reverse_rotate(push_swap->stack_a, push_swap->stack_b, &push_swap->cmds);
+// 	print_stack(push_swap->stack_a);
+// 	print_stack(push_swap->stack_b);
+// 	print_lst(push_swap->cmds);
+// 	printf("------\n");
+// 	push(push_swap->stack_a, push_swap->stack_b, &push_swap->cmds);
+// 	print_stack(push_swap->stack_a);
+// 	print_stack(push_swap->stack_b);
+// 	print_lst(push_swap->cmds);
+// 	printf("------\n");
+// 	r_rotate(push_swap->stack_a, push_swap->stack_b, &push_swap->cmds);
+// 	print_stack(push_swap->stack_a);
+// 	print_stack(push_swap->stack_b);
+// 	print_lst(push_swap->cmds);
+// 	printf("stack_a: %zu \nstack_b: %zu \n", push_swap->stack_a->len, push_swap->stack_b->len);
+// 	free_children(push_swap);
+// 	free(push_swap);
+// 	printf("OK\n");
+// 	return (1);
+// }
 
 // int	main(int argc, char *argv[])
 // {
