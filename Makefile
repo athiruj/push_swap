@@ -14,7 +14,7 @@ OBJS_DIR	=	odjs/
 HEADER		= 	push_swap.h
 FILES		=	push_swap.c
 SORTS		=	s_case.c \
-				s_find.c  
+				s_find.c \
 				s_sort.c \
 				s_sort_case.c
 
@@ -71,7 +71,7 @@ tclean:
 test: all tclean ok1 ok2 ok3 ok4 ok5 ok6 ok7 ok8 ok9 ok10 no1 no2 error1 error2 error3 error4 error5 error6 error7 error8 error9 error10 error11 error12 error13 error14 error15 error16 error17
 
 ok1: $(NAME)
-	leaks -atExit -- ./push_swap 4 3 7 2 -1 -3 6 8 > tests/ok_1.txt
+	leaks -atExit -- ./push_swap 4 3 7 2 -1 -3 6 8 > tests/ok_1.txt | wc -l
 
 ok2: $(NAME)
 	leaks -atExit -- ./push_swap 7 +3 9 2 -1 -0 6 +8 > tests/ok_2.txt

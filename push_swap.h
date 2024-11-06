@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:14:09 by athi              #+#    #+#             */
-/*   Updated: 2024/11/05 19:10:32 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/06 15:26:51 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,23 +76,24 @@ void	s_swap(t_stack *stack_a, t_stack *stack_b, t_list **cmds);
 t_bool	sort_push_swap(t_push_swap *push_swap);
 
 /* 	find functions */
-int		find_min(t_stack *stack);
-int		find_max(t_stack *stack);
-ssize_t	find_index(t_stack *stack, int num);
-ssize_t	find_index_a(t_stack *stack, int num);
-ssize_t	find_index_b(t_stack *stack, int num);
+int		find_min(t_stack stack);
+int		find_max(t_stack stack);
+ssize_t	find_index(t_stack stack, int n);
+ssize_t	find_index_a(t_stack stack, int n);
+ssize_t	find_index_b(t_stack stack, int n);
 
 /* 	in case functions */
-ssize_t	find_case(t_stack *stack1, t_stack *stack2);
-ssize_t	case_r_r(t_stack *stack1, t_stack *stack2, int num);
-ssize_t	case_rr_rr(t_stack *stack1, t_stack *stack2, int num);
-ssize_t	case_rr_r(t_stack *stack1, t_stack *stack2, int num);
-ssize_t	case_r_rr(t_stack *stack1, t_stack *stack2, int num);
+ssize_t	find_case(t_stack stack1, t_stack stack2);
+ssize_t	case_r_r(t_stack stack1, t_stack stack2, int n);
+ssize_t	case_rr_rr(t_stack stack1, t_stack stack2, int n);
+ssize_t	case_rr_r(t_stack stack1, t_stack stack2, int n);
+ssize_t	case_r_rr(t_stack stack1, t_stack stack2, int n);
 
 /* 	in case sorting functions */
-ssize_t	sort_case_r_r(t_stack *from_stack, t_stack *to_stack, t_list **cmds);
-ssize_t	sort_case_rr_rr(t_stack *from_stack, t_stack *to_stack, t_list **cmds);
-ssize_t	sort_case_rr_r(t_stack *from_stack, t_stack *to_stack, t_list **cmds);
-ssize_t	sort_case_r_rr(t_stack *from_stack, t_stack *to_stack, t_list **cmds);
+ssize_t	r_r(t_stack *from_stack, t_stack *to_stack, t_list **cmds, int n);
+ssize_t	rr_rr(t_stack *from_stack, t_stack *to_stack, t_list **cmds, int n);
+ssize_t	rr_r(t_stack *from_stack, t_stack *to_stack, t_list **cmds, int n);
+ssize_t	r_rr(t_stack *from_stack, t_stack *to_stack, t_list **cmds, int n);
 
+void	print_stack(t_stack *stack);
 #endif
