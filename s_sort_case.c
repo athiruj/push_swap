@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:47:03 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/06 14:57:44 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/08 18:27:14 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ ssize_t	rr_r(t_stack *from_stack, t_stack *to_stack, t_list **cmds, int n)
 	{
 		while (find_index_a(*from_stack, n) > 0)
 			reverse_rotate(from_stack, cmds);
-		while (*(int *)from_stack->head->content != n)
+		while (*(int *)to_stack->head->content != n)
 			rotate(to_stack, cmds);
 	}
 	else if (!ft_strcmp(from_stack->name, "b"))
@@ -95,7 +95,7 @@ ssize_t	r_rr(t_stack *from_stack, t_stack *to_stack, t_list **cmds, int n)
 	}
 	else if (!ft_strcmp(from_stack->name, "b"))
 	{
-		while (*(int *)from_stack->head->content != n)
+		while (*(int *)to_stack->head->content != n)
 			rotate(to_stack, cmds);
 		while (find_index_b(*from_stack, n) > 0)
 			reverse_rotate(from_stack, cmds);

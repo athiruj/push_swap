@@ -1,6 +1,6 @@
 CC			= 	cc
-CCFLAGS		= 	-Wall -Wextra -Werror
-# CCFLAGS		=	
+# CCFLAGS		= 	-Wall -Wextra -Werror
+CCFLAGS		=	
 AR 			= 	ar -rsc
 RM			= 	rm -rf
 
@@ -71,7 +71,7 @@ tclean:
 test: all tclean ok1 ok2 ok3 ok4 ok5 ok6 ok7 ok8 ok9 ok10 no1 no2 error1 error2 error3 error4 error5 error6 error7 error8 error9 error10 error11 error12 error13 error14 error15 error16 error17
 
 ok1: $(NAME)
-	leaks -atExit -- ./push_swap 4 3 7 2 -1 -3 6 8 > tests/ok_1.txt | wc -l
+	leaks -atExit -- ./push_swap 4 3 7 2 -1 -3 6 8 > tests/ok_1.txt
 
 ok2: $(NAME)
 	leaks -atExit -- ./push_swap 7 +3 9 2 -1 -0 6 +8 > tests/ok_2.txt
@@ -156,5 +156,8 @@ error16: $(Name)
 
 error17: $(Name)
 	leaks -atExit -- ./push_swap 1 2 3 4 a b c d 1a 2b 3c 4d > tests/error_17.txt
+
+error18: $(Name)
+	leaks -atExit -- ./push_swap -50 - > tests/error_18.txt
 
 .PHONY: all clean fclean re tclean test ok1 ok2 ok3 ok4 ok5 ok6 ok7 ok8 ok9 ok10 no1 no2 error1 error2 error3 error4 error5 error6 error7 error8 error9 error10 error11 error12 error13 error14 error15 error16 error17

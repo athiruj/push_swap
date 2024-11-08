@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 21:26:35 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/05 15:43:53 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/07 16:43:01 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static t_bool	is_number(t_list *stack)
 		str = (char *)stack->content;
 		if (*str == '-' || *str == '+')
 			str++;
+		if (!*str)
+			return (False);
 		while (*str)
 		{
 			if (!ft_isdigit(*str++))
@@ -90,7 +92,7 @@ t_bool	stack_checker(t_list *stack)
 		|| is_overflow(stack)
 		|| is_duplicate(stack))
 	{
-		ft_putstr_fd("ERROR\n", 1);
+		ft_putstr_fd("Error\n", 2);
 		return (False);
 	}
 	if (is_sorted(stack))

@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 20:05:36 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/02 22:55:14 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/07 16:50:58 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ static t_bool	push_stack(t_list *stack, char *str)
 	return (True);
 }
 
-static t_bool	build_stack(t_list	*stack, int argc, char *argv[])
+static t_bool	build_stack(t_list	*stack, char *argv[])
 {
 	char	**tmp_arr;
 	size_t	i;
 
-	while (*++argv && --argc)
+	while (*++argv)
 	{
 		tmp_arr = ft_split(*argv, ' ');
 		if (!tmp_arr || !(tmp_arr[0]))
 		{
-			ft_putstr_fd("ERROR\n", 1);
+			ft_putstr_fd("Error\n", 2);
 			return (!free_arr(tmp_arr));
 		}
 		i = 0;
@@ -50,7 +50,7 @@ static t_bool	build_stack(t_list	*stack, int argc, char *argv[])
 	return (True);
 }
 
-t_bool	initial_stack(t_stack *stack, char *name, int argc, char *argv[])
+t_bool	initial_stack(t_stack *stack, char *name, char *argv[])
 {
 	size_t	i;
 	t_list	*tmp_lst;
@@ -58,7 +58,7 @@ t_bool	initial_stack(t_stack *stack, char *name, int argc, char *argv[])
 	stack->head = (t_list *)malloc(sizeof(t_stack));
 	if (!stack->head)
 		return (False);
-	if (!build_stack(stack->head, argc, argv)
+	if (!build_stack(stack->head, argv)
 		|| !stack_checker(stack->head))
 	{
 		free_stack(stack);
@@ -77,7 +77,7 @@ t_bool	initial_stack(t_stack *stack, char *name, int argc, char *argv[])
 	return (True);
 }
 
-t_bool	initial_push_swap(t_push_swap *push_swap, int argc, char *argv[])
+t_bool	initial_push_swap(t_push_swap *push_swap, char *argv[])
 {
 	if (!push_swap)
 		return (False);
@@ -91,7 +91,7 @@ t_bool	initial_push_swap(t_push_swap *push_swap, int argc, char *argv[])
 	push_swap->stack_b->head = NULL;
 	push_swap->stack_b->tail = NULL;
 	push_swap->cmds->content = NULL;
-	if (!initial_stack(push_swap->stack_a, "a", argc, argv))
+	if (!initial_stack(push_swap->stack_a, "a", argv))
 		return (!free_fail_children(push_swap));
 	return (True);
 }

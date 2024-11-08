@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:38:47 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/06 15:26:11 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/08 18:28:53 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,11 @@ static void	sort_stack_b(t_push_swap *push_swap, t_list	**cmds)
 
 	stack_a = push_swap->stack_a;
 	stack_b = push_swap->stack_b;
-	while (stack_a->len > 3 && !is_sorted(stack_a->head))
+	while (push_swap->stack_a->len > 3 && !is_sorted(push_swap->stack_a->head))
 	{
 		tmp = stack_a->head;
 		idx = find_case(*stack_b, *stack_a);
-		while (idx > -1)
+		while (idx > -1 && tmp)
 		{
 			if (idx == case_rr_rr(*stack_b, *stack_a, *(int *)tmp->content))
 				idx = rr_rr(stack_b, stack_a, cmds, *(int *)tmp->content);
@@ -102,7 +102,7 @@ static void	setup_stack_b(t_push_swap *push_swap)
 		push(push_swap->stack_a, push_swap->stack_b, &push_swap->cmds);
 	if (push_swap->stack_a->len > 3 && !is_sorted(push_swap->stack_a->head))
 		sort_stack_b(push_swap, &push_swap->cmds);
-	if (!is_sorted(push_swap->stack_a->head))
+	if (push_swap->stack_a->len == 3 && !is_sorted(push_swap->stack_a->head))
 		sort_3(push_swap->stack_a, &push_swap->cmds);
 }
 

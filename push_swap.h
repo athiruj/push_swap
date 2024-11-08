@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:14:09 by athi              #+#    #+#             */
-/*   Updated: 2024/11/06 15:26:51 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/07 16:48:52 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include "libft/libft.h"
+#include <stdio.h>
 
 /*
 	head: head of stack
@@ -49,8 +50,8 @@ t_bool	stack_checker(t_list *lst);
 t_bool	is_sorted(t_list *stack);
 
 /*  initialize function */
-t_bool	initial_stack(t_stack *stack, char *name, int argc, char *argv[]);
-t_bool	initial_push_swap(t_push_swap *push_swap, int argc, char *argv[]);
+t_bool	initial_stack(t_stack *stack, char *name, char *argv[]);
+t_bool	initial_push_swap(t_push_swap *push_swap, char *argv[]);
 
 /*  free functions */
 t_bool	free_children(t_push_swap *push_swap);
@@ -95,5 +96,5 @@ ssize_t	rr_rr(t_stack *from_stack, t_stack *to_stack, t_list **cmds, int n);
 ssize_t	rr_r(t_stack *from_stack, t_stack *to_stack, t_list **cmds, int n);
 ssize_t	r_rr(t_stack *from_stack, t_stack *to_stack, t_list **cmds, int n);
 
-void	print_stack(t_stack *stack);
+// void	print_stack(t_stack *stack);
 #endif
