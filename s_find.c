@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:48:06 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/06 14:14:38 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/11 09:35:32 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	find_max(t_stack stack)
 	}
 	return (num);
 }
-
+/* find index of number in stack */
 ssize_t	find_index(t_stack stack, int num)
 {
 	ssize_t	idx;
@@ -53,6 +53,7 @@ ssize_t	find_index(t_stack stack, int num)
 	return (idx);
 }
 
+/* find index of number should be in stack a */
 ssize_t	find_index_a(t_stack stack, int num)
 {
 	ssize_t	idx;
@@ -77,6 +78,7 @@ ssize_t	find_index_a(t_stack stack, int num)
 	return (idx);
 }
 
+/* find index of number should be in stack b */
 ssize_t	find_index_b(t_stack stack, int num)
 {
 	ssize_t	idx;

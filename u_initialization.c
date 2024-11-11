@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 20:05:36 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/07 16:50:58 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/11 09:29:03 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static t_bool	build_stack(t_list	*stack, char *argv[])
 	return (True);
 }
 
-t_bool	initial_stack(t_stack *stack, char *name, char *argv[])
+static t_bool	initial_stack(t_stack *stack, char *name, char *argv[])
 {
 	size_t	i;
 	t_list	*tmp_lst;
