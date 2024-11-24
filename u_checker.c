@@ -6,13 +6,13 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 21:26:35 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/07 16:43:01 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/23 16:29:00 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_bool	is_number(t_list *stack)
+t_bool	is_number(t_list *stack)
 {
 	char	*str;
 
@@ -33,7 +33,7 @@ static t_bool	is_number(t_list *stack)
 	return (True);
 }
 
-static t_bool	is_overflow(t_list *stack)
+t_bool	is_overflow(t_list *stack)
 {
 	long	tmp;
 	int		*tmp_int;
@@ -53,7 +53,7 @@ static t_bool	is_overflow(t_list *stack)
 	return (False);
 }
 
-static t_bool	is_duplicate(t_list *stack)
+t_bool	is_duplicate(t_list *stack)
 {
 	t_list	*tmp_stack;
 

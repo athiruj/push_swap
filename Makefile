@@ -40,18 +40,13 @@ FILE_OBJS	=	$(addprefix $(OBJS_DIR), $(FILES:.c=.o)) \
 BONUSNAME 		= 	checker
 
 BONUSOBJS_DIR	=	bonus_objs/
-# BONUSHEADER 	= 	checker.h
+
 BONUSFILES		=	checker.c
-
-# BONUSGNL_DIR	=	get_next_line/
-
-# BONUSGNLHEADER	=	get_next_line/get_next_line.h
-# BONUSGNLFILES	=	get_next_line.c \
-# 					get_next_line_utils.c
 
 BONUS_OBJS		=	$(addprefix $(BONUSOBJS_DIR), $(BONUSFILES:.c=.o)) \
 					$(addprefix $(BONUSOBJS_DIR), $(addprefix $(BONUSGNL_DIR), $(BONUSGNLFILES:.c=.o))) \
-					$(addprefix $(BONUSOBJS_DIR), $(UTILS:.c=.o))
+					$(addprefix $(BONUSOBJS_DIR), $(UTILS:.c=.o)) \
+					$(addprefix $(BONUSOBJS_DIR), $(OPERS:.c=.o))
 
 all: makelib $(NAME) $(HEADER)
 
@@ -88,7 +83,7 @@ clean:
 fclean: clean
 	@make fclean -C $(LIB_DIR)
 	@make fclean -C $(GNL_DIR)
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(BONUSNAME)
 
 re: clean all
 

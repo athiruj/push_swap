@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:14:09 by athi              #+#    #+#             */
-/*   Updated: 2024/11/11 09:29:09 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/24 12:16:38 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ typedef struct s_push_swap
 /*  checker functions */
 t_bool	stack_checker(t_list *lst);
 t_bool	is_sorted(t_list *stack);
+t_bool	is_duplicate(t_list *stack);
+t_bool	is_overflow(t_list *stack);
+t_bool	is_number(t_list *stack);
 
 /*  initialize function */
 t_bool	initial_push_swap(t_push_swap *push_swap, char *argv[]);
