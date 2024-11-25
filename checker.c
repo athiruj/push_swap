@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 12:26:49 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/25 16:34:20 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:54:34 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ t_bool	sort_cmds(t_push_swap *push_swap)
 {
 	t_list	*tmp;
 
+	if (is_sorted(push_swap->stack_a->head))
+		return (True);
 	tmp = push_swap->cmds;
 	while (tmp)
 	{
@@ -119,7 +121,7 @@ int	main(int argc, char *argv[])
 		free(push_swap);
 		return (1);
 	}
-	if (sort_cmds(push_swap) && is_sorted(push_swap->stack_a->head))
+	if (sort_cmds(push_swap))
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);
