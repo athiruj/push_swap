@@ -6,14 +6,13 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 12:26:49 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/25 01:05:43 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/25 16:34:20 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "push_swap.h"
 #include "get_next_line/get_next_line.h"
-#include <stdio.h>
 
 t_bool	is_cmd(char *cmd)
 {
@@ -63,16 +62,6 @@ t_bool	do_cmd(t_push_swap *push_swap, char *cmd)
 	return (True);
 }
 
-// void print_stack(t_stack *stack)
-// {
-// 	while (stack->head)
-// 	{
-// 		printf("%d\n", *(int *)stack->head->content);
-// 		stack->head = stack->head->next;
-// 	}
-// 	printf("\n");
-// }
-
 t_bool	sort_cmds(t_push_swap *push_swap)
 {
 	t_list	*tmp;
@@ -96,9 +85,10 @@ t_bool	initial_cmd(t_list **cmds)
 	{
 		if (tmp[ft_strlen(tmp) - 1] == '\n')
 			tmp[ft_strlen(tmp) - 1] = '\0';
-		if (tmp[0] && !is_cmd(tmp))
+		if (!is_cmd(tmp))
 		{
 			ft_putstr_fd("Error\n", 2);
+			free(tmp);
 			return (False);
 		}
 		if (tmp[0])

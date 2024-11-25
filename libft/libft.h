@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 13:52:33 by athi              #+#    #+#             */
-/*   Updated: 2024/10/20 05:38:01 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/24 10:31:29 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,16 @@
 # include <unistd.h>
 # include <limits.h>
 
+# ifndef E_BOOL
+#  define E_BOOL
+
 typedef enum e_bool
 {
 	True = 1,
-	False = 0
+	False = 0,
 }	t_bool;
+
+# endif
 
 typedef struct s_list
 {

@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:28:43 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/06 01:11:07 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/24 21:46:00 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	print_cmds(t_list *cmds)
 	tmp = cmds;
 	while (tmp)
 	{
-		write(1, (char *)tmp->content, ft_strlen((char *)tmp->content));
-		write(1, "\n", 1);
+		ft_putstr_fd((char *)tmp->content, 1);
+		ft_putchar_fd('\n', 1);
 		tmp = tmp->next;
 	}
 }

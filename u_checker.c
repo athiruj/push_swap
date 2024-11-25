@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 21:26:35 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/23 16:29:00 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/24 20:02:42 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,5 @@ t_bool	stack_checker(t_list *stack)
 		ft_putstr_fd("Error\n", 2);
 		return (False);
 	}
-	if (is_sorted(stack))
-		return (False);
 	return (True);
 }
