@@ -50,7 +50,7 @@ BONUS_OBJS		=	$(addprefix $(BONUSOBJS_DIR), $(BONUSFILES:.c=.o)) \
 
 all: makelib $(NAME) $(HEADER)
 
-bonus: makelib makegnl $(BONUSNAME) $(HEADER)
+bonus: all makegnl $(BONUSNAME) $(HEADER)
 
 $(NAME): $(OBJS_DIR) $(FILE_OBJS) $(LIBFT) $(HEADER) Makefile 
 	$(CC) $(CCFLAGS) -o $@ $(FILE_OBJS) $(LIBFT)
