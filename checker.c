@@ -6,7 +6,7 @@
 /*   By: atkaewse <atkaewse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 12:26:49 by atkaewse          #+#    #+#             */
-/*   Updated: 2024/11/25 18:14:31 by atkaewse         ###   ########.fr       */
+/*   Updated: 2024/11/25 18:27:59 by atkaewse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,9 @@ t_bool	sort_cmds(t_push_swap *push_swap)
 			return (False);
 		tmp = tmp->next;
 	}
-	return (True);
+	if (is_sorted(push_swap->stack_a->head))
+		return (True);
+	return (False);
 }
 
 t_bool	initial_cmd(t_list **cmds)
@@ -118,11 +120,11 @@ int	main(int argc, char *argv[])
 	}
 	if (!initial_cmd(&push_swap->cmds))
 	{
+		free_children(push_swap);
 		free(push_swap);
 		return (1);
 	}
-	if (sort_cmds(push_swap) && is_sorted(push_swap->stack_a->head)
-		&& !push_swap->stack_b->len)
+	if (sort_cmds(push_swap) && !push_swap->stack_b->len)
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);
